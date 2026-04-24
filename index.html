@@ -62,6 +62,12 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--brow
 .detail-body{padding:22px;}
 .detail-desc{font-size:13px;line-height:2.4;color:var(--brown-lt);padding:14px 16px;background:var(--bg);border-radius:14px;border-left:4px solid var(--sage);margin-bottom:22px;}
 .detail-desc ruby,.detail-desc rt,ruby,rt{ruby-align:center;}
+.video-section{margin-bottom:22px;}
+.video-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.video-icon{width:32px;height:32px;background:var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.video-title{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:var(--brown);letter-spacing:2px;}
+.video-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;background:#FF0000;color:#fff;border:none;border-radius:16px;font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:1px;transition:all .25s cubic-bezier(.34,1.56,.64,1);text-decoration:none;}
+.video-btn:hover{background:#cc0000;transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,0,0,.3);}
 .detail-desc rt,rt{font-size:.5em;color:#9A7A6A;font-family:'Noto Sans JP',sans-serif;}
 .conv-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .conv-icon{width:32px;height:32px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
@@ -208,7 +214,7 @@ var SPOTS={
   yamakasa:{
     name:'\u4e0a\u9808\u6075\u7960\u5712\u5c71\u7b20',
     nameRuby:'<ruby>\u4e0a\u9808\u6075\u7960\u5712\u5c71\u7b20<rt>\u304b\u307f\u304b\u3059\u3044\u304e\u304a\u3093\u3084\u307e\u304b\u3055</rt></ruby>',
-    nameEn:'Kamikasui Gion Yamakasa Festival',imgKey:'yamakasa',
+    nameEn:'Kamikasui Gion Yamakasa Festival',imgKey:'yamakasa',videoUrl:'https://youtube.com/shorts/A7HdM1Iphfk',
     desc:'<ruby>\u7cdf\u5c4b\u90e1\u9808\u6075\u753a<rt>\u304b\u3059\u3084\u3050\u3093\u3059\u3048\u307e\u3061</rt></ruby>\u306e<ruby>\u4e0a\u9808\u6075\u5730\u533a<rt>\u304b\u307f\u304b\u3059\u3044\u3061\u304f</rt></ruby>\u306b<ruby>\u4f1d<rt>\u3064\u305f</rt></ruby>\u308f\u308b<ruby>\u7960\u5712\u5c71\u7b20<rt>\u304e\u304a\u3093\u3084\u307e\u304b\u3055</rt></ruby>\u306f\u3001<ruby>\u798f\u5ca1<rt>\u3075\u304f\u304a\u304b</rt></ruby>\u306e<ruby>\u590f<rt>\u306a\u3064</rt></ruby>\u3092<ruby>\u5f69<rt>\u3044\u308d\u3069</rt></ruby>\u308b<ruby>\u7121\u5f62\u6c11\u4fd7\u6587\u5316\u8ca1<rt>\u3080\u3051\u3044\u307f\u3093\u305e\u304f\u3076\u3093\u304b\u3056\u3044</rt></ruby>\u3067\u3059\u3002<ruby>\u52c7\u58ee<rt>\u3086\u3046\u305d\u3046</rt></ruby>\u306a<ruby>\u98fe\u308a\u5c71<rt>\u304b\u3056\u308a\u3084\u307e</rt></ruby>\u3068<ruby>\u6b66\u5c06<rt>\u3076\u3057\u3087\u3046</rt></ruby>\u30fb<ruby>\u9f8d<rt>\u308a\u3085\u3046</rt></ruby>\u306e<ruby>\u4eba\u5f62<rt>\u306b\u3093\u304e\u3087\u3046</rt></ruby>\u304c\u898b\u308b\u4eba\u3092\u5727\u5012\u3057\u307e\u3059\u3002<ruby>\u5730\u57df<rt>\u3061\u3044\u304d</rt></ruby>\u306e\u8a87\u308a\u3067\u3059\u3002',
     scene:'\u304a\u796d\u308a\u3067\u5730\u5143\u306e\u4eba\u3068\u8a71\u3059\u5834\u9762',
     convs:[
@@ -248,6 +254,7 @@ function selectSpot(id){
     +'<div class="hero-en">'+s.nameEn+'</div>'
     +'</div></div></div>'
     +'<div class="detail-body"><p class="detail-desc">'+s.desc+'</p>'
+    +(s.videoUrl?'<div class="video-section"><div class="video-header"><div class="video-icon">🎬</div><div class="video-title">現地の様子</div></div><a class="video-btn" href="'+s.videoUrl+'" target="_blank">▶️ YouTubeで動画を見る</a></div>':'')
     +'<div class="conv-header"><div class="conv-icon">\ud83d\udcac</div><div class="conv-title">\u4f1a\u8a71\u3092\u5b66\u3076</div></div>'
     +'<div class="conv-scene-badge">'+s.scene+'</div>'+ln
     +'<button class="prac-btn" data-spotid="'+id+'" onclick="openChat(this.dataset.spotid)">\ud83c\udfaf \u30af\u30ed\u30fc\u30c9\u3068\u4f1a\u8a71\u7df4\u7fd2\u3059\u308b</button>'
